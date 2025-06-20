@@ -1,0 +1,39 @@
+@localhost= localhost:4004/odata/v4/main
+@idLucas=a18b82c9-b98e-4212-8c59-ac102a48edc9
+
+GET http://{{localhost}}/Customers
+Content-Type: application/json
+
+###
+POST http://{{localhost}}/Customers
+Content-Type: application/json
+
+{
+    "id": "a18b82c9-b98e-4212-8c59-ac102a48edc9",
+    "firstName": "Lucas",
+    "lastName": "Nascimento",
+    "email": "lnascimento.ec@gmail.com"
+}
+
+###
+DELETE  http://{{localhost}}/Customers(id={{idLucas}})
+Content-Type: application/json
+
+### atualiza todos os dados
+PUT  http://{{localhost}}/Customers(id={{idLucas}})
+Content-Type: application/json
+
+{
+    "id": "a18b82c9-b98e-4212-8c59-ac102a48edc9",
+    "firstName": "Lucas",
+    "lastName": "Nascimento",
+    "email": "lucas.nascimento@gmail.com"
+}
+
+### atualiza apenas o que for enviado
+PATCH   http://{{localhost}}/Customers(id={{idLucas}})
+Content-Type: application/json
+
+{
+    "email": "lucas.nascimento_10@gmail.com"
+}
